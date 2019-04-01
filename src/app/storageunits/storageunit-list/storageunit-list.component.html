@@ -1,0 +1,52 @@
+<mat-card class="card-align">
+  <mat-card-header>
+    <span class="fill-remaining-space"></span>
+    <span><mat-card-title>Storage Units</mat-card-title></span>
+    <span class="fill-remaining-space"></span>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="mat-elevation-8">
+
+      <mat-table [dataSource]="unitList">
+        <ng-container matColumnDef="number">
+          <mat-header-cell *matHeaderCellDef>Unit number</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.number}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="size">
+          <mat-header-cell *matHeaderCellDef>Unit size</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.size}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef>Unit price</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.price}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="vacant">
+          <mat-header-cell *matHeaderCellDef>Vacant</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.vacant?"Vacant":"Not vacant"}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="onEdit(row)"><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button color="warn" (click)="onDelete(row)"><mat-icon>delete_outline</mat-icon></button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns">
+        </mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+
+      </mat-table>
+      <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="paginatorAlign"></mat-paginator>
+
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="button-row">
+      <button mat-raised-button color="primary" type="button" (click)="onCreate()">
+        <mat-icon>add</mat-icon>Add new
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

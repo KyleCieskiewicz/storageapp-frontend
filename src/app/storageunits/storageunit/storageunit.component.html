@@ -1,0 +1,39 @@
+<mat-toolbar>
+  <span>{{service.form.controls['$key'].value?"Update unit":"Add unit"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+
+<form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+
+  <mat-grid-list cols="1" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="form-container">
+        <input type="hidden" formControlName="$key">
+        <mat-form-field>
+          <input type="text" formControlName="number" matInput placeholder="Enter unit number">
+          <mat-error>Unit number is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" formControlName="size" matInput placeholder="Enter unit size">
+          <mat-error>Unit size is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" formControlName="price" matInput placeholder="Enter unit price">
+          <mat-error>Unit price is mandatory</mat-error>
+        </mat-form-field>
+        <div class="bottom-padded">
+          <mat-checkbox formControlName="vacant">
+            Vacant?
+          </mat-checkbox>
+        </div>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">
+            Submit
+          </button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</form>

@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.fill-remaining-space{
+  flex: 1 1 auto
+}
+
+form.normal-form{
+  margin: 10px;
+}
+
+.form-container{
+  width: 100%;
+  padding: 5%;
+}
+
+.form-container > * {
+  width: 100%;
+}
+
+.bottom-padded {
+  padding-bottom: 10px;
+}
+
+mat-radio-group mat-radio-button{
+  margin-left: 5px;
+}
+
+.button-row button {
+  margin: 5px;
+}
+
+.centralize {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.paginatorAlign {
+  margin-right: 20%;
+}
+
+.success {
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+
+.card-align {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 30px;
+}
+
+.error {
+  margin-left: 30%;
+  margin-right: 15%;
+  margin-top: 30px;
+  color: red;
+}
