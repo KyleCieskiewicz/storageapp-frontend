@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-storageunits',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StorageunitsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+  private router: Router) {
+  }
 
   ngOnInit() {
+    this.route.queryParamMap.subscribe(
+      params => {
+        if(params.get('password') != 'mynameiskyle'){
+          this.router.navigate(['/error']);
+        }
+      }
+    );
   }
 
 }
